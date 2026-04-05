@@ -1,0 +1,55 @@
+* { box-sizing: border-box; font-family: sans-serif; }
+body { margin: 0; background-color: #f4f7f9; transition: 0.3s; }
+header { background: #003399; color: white; padding: 15px; display: flex; align-items: center; gap: 15px; }
+
+/* Menyu İkonu */
+.menu-icon { cursor: pointer; display: flex; flex-direction: column; gap: 4px; }
+.menu-icon span { width: 25px; height: 3px; background: white; border-radius: 2px; }
+
+/* Yan Menyu */
+.side-menu {
+    position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
+    background: white; transition: 0.3s; box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    z-index: 1000; overflow-y: auto;
+}
+.side-menu.active { left: 0; }
+
+/* Bağlama Düyməsi (X) */
+.close-menu-wrapper { text-align: right; padding: 10px; }
+.close-menu-btn { font-size: 30px; cursor: pointer; color: #2196F3; padding: 5px 15px; }
+
+/* Menyu Bölmələri */
+.menu-section { padding: 15px; border-bottom: 1px solid #eee; }
+.menu-section h3 { font-size: 14px; margin: 0 0 10px 0; color: #666; }
+select { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ddd; }
+
+/* Dil Düymələri */
+.lang-buttons { display: flex; gap: 5px; }
+.lang-btn { flex: 1; padding: 8px; border: 1px solid #2196F3; background: transparent; color: #2196F3; border-radius: 4px; cursor: pointer; }
+.lang-btn:hover { background: #2196F3; color: white; }
+
+/* Toggle Switch (Göy rəngli) */
+.toggle-container { display: flex; justify-content: space-between; align-items: center; }
+.switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
+.slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+input:checked + .slider { background-color: #2196F3; }
+input:checked + .slider:before { transform: translateX(20px); }
+
+/* Kartlar və Konteyner */
+.container { display: flex; flex-wrap: wrap; gap: 15px; padding: 20px; justify-content: center; }
+.currency-card { background: white; padding: 20px; border-radius: 12px; width: 180px; text-align: center; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.remove-btn { position: absolute; top: 5px; right: 10px; color: red; cursor: pointer; font-weight: bold; }
+
+/* Qaranlıq Rejim */
+.dark-mode { background-color: #1a1a1a; color: white; }
+.dark-mode .side-menu, .dark-mode .currency-card { background: #2d2d2d; color: white; }
+.dark-mode .menu-section { border-bottom-color: #444; }
+
+/* Düymə */
+.theme-btn { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd; cursor: pointer; }
+
+/* İdarəetmə Paneli */
+.controls-bar { background: white; padding: 10px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; border-bottom: 1px solid #ddd; }
+.dark-mode .controls-bar { background: #2d2d2d; border-bottom-color: #444; }

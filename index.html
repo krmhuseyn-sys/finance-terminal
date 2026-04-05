@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>International Finance Terminal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="logo" id="logo-text">FINANCE TERMINAL</div>
+    </header>
+
+    <div id="sideMenu" class="side-menu">
+        <div class="close-menu-wrapper">
+            <span onclick="toggleMenu()" class="close-menu-btn">&times;</span>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="lang-label">Dil / Language</h3>
+            <div class="lang-buttons">
+                <button onclick="setLanguage('az')" class="lang-btn">AZ</button>
+                <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+            </div>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="sort-label">Sıralama (Filtr)</h3>
+            <select id="sortOrder" onchange="sortCards()">
+                <option value="az">A-Z</option>
+                <option value="za">Z-A</option>
+                <option value="high" id="opt-high">Bahadan Ucuzuna</option>
+                <option value="low" id="opt-low">Ucuzdan Bahasına</option>
+            </select>
+        </div>
+        
+        <div class="menu-section">
+            <h3 id="add-label">Valyuta Əlavə Et</h3>
+            <select id="allCurrencySelect" onchange="addNewCurrency()">
+                <option value="" id="opt-select">Valyuta seçin...</option>
+            </select>
+        </div>
+
+        <div class="menu-item" style="padding: 10px;">
+            <button onclick="toggleTheme()" id="theme-btn" class="theme-btn">Ağ / Qara Rejim</button>
+        </div>
+
+        <div class="menu-section">
+            <h3 id="effect-label">Effektlər</h3>
+            <div class="toggle-container">
+                <span id="sound-label">Səs Effekti</span>
+                <label class="switch">
+                    <input type="checkbox" id="soundToggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls-bar">
+        <div class="control-item">
+            <span id="base-label">Əsas:</span>
+            <select id="baseCurrency" onchange="getRates()">
+                <option value="AZN">AZN</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="TRY">TRY</option>
+            </select>
+        </div>
+        <div class="control-item">
+            <span id="amount-label">Məbləğ:</span>
+            <input type="number" id="amount" value="1" oninput="renderCards()">
+        </div>
+        <button onclick="getRates()" class="refresh-btn" id="refresh-btn">Yenilə 🔄</button>
+    </div>
+
+    <main>
+        <div id="currency-container" class="container"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
